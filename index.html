@@ -1,105 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">  <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-        }
-    </style>
-</head>
-<body class="flex items-center justify-center min-h-screen">
-    <div class="w-full max-w-2xl mx-auto p-8 md:p-12 bg-white rounded-xl shadow-lg transform transition-all duration-500 ease-in-out">
-        <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-2">Hubungi Kami</h1>
-        <p class="text-center text-gray-500 mb-8">Silakan isi formulir di bawah ini dan kami akan segera menghubungi Anda.</p>
-        <form id="contactForm" class="space-y-6">
-            <!-- Nama -->
-            <div>
-                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-                <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
-            </div>
-
-            <!-- Email -->
-            <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
-            </div>
-
-            <!-- Nomor HP -->
-            <div>
-                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Nomor HP</label>
-                <input type="tel" id="phone" name="phone" placeholder="Masukkan nomor HP Anda" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
-            </div>
-
-            <!-- Pesan -->
-            <div>
-                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
-                <textarea id="message" name="message" rows="4" placeholder="Tuliskan pesan Anda di sini" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"></textarea>
-            </div>
-            
-            <!-- Tombol Kirim -->
-            <div>
-                <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-md shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors transform hover:scale-105">
-                    Kirim Pesan
-                </button>
-            </div>
-        </form>
-        
-        <!-- Pesan Sukses/Error (disembunyikan secara default) -->
-        <div id="messageBox" class="mt-8 p-4 rounded-md hidden">
-            <div id="messageText" class="font-medium"></div>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const form = document.getElementById('contactForm');
-            const messageBox = document.getElementById('messageBox');
-            const messageText = document.getElementById('messageText');
-
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-
-                // Dapatkan nilai dari setiap input
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const message = document.getElementById('message').value.trim();
-
-                // Validasi sederhana
-                if (!name || !email || !phone || !message) {
-                    showMessage('Semua kolom harus diisi.', 'error');
-                    return;
-                }
-
-                showMessage('Pesan Anda berhasil dikirim!', 'success');
-                form.reset();
-            });
-
-            function showMessage(text, type) {
-                messageText.textContent = text;
-                messageBox.classList.remove('hidden', 'bg-green-100', 'text-green-700', 'bg-red-100', 'text-red-700');
-                if (type === 'success') {
-                    messageBox.classList.add('bg-green-100', 'text-green-700');
-                } else if (type === 'error') {
-                    messageBox.classList.add('bg-red-100', 'text-red-700');
-                }
-            }
-        });
-    </script>
-</body>
-</html>
-
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Company</title>
-  <!-- Tailwind CSS CDN -->
+    <title>Website Perusahaan</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -110,85 +15,276 @@
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6;
         }
+        .section-separator {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen">
-    <div class="w-full max-w-2xl mx-auto p-8 md:p-12 bg-white rounded-xl shadow-lg transform transition-all duration-500 ease-in-out">
-        <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-2">Hubungi Kami</h1>
-        <p class="text-center text-gray-500 mb-8">Silakan isi formulir di bawah ini dan kami akan segera menghubungi Anda.</p>
-        <form id="contactForm" class="space-y-6">
-            <!-- Nama -->
-            <div>
-                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-                <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
-            </div>
+<body class="bg-white text-gray-800">
 
-            <!-- Email -->
-            <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
-            </div>
+    <!-- Header & Navigation -->
+    <header class="p-4 md:p-6 flex items-center justify-between section-separator">
+        <div class="flex items-center space-x-2">
+            <!-- Logo placeholder -->
+            <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center text-white text-lg font-bold">H</div>
+            <span class="font-semibold text-xl">MyWebsite</span>
+        </div>
+        <nav>
+            <ul class="flex space-x-4 md:space-x-8 text-sm md:text-base font-medium">
+                <li><a href="#home" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Home</a></li>
+                <li><a href="#profile" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">My Profile</a></li>
+                <li><a href="#portfolio" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Message Us</a></li>
+                <li><a href="#achievement" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Achievement</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <!-- Nomor HP -->
-            <div>
-                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Nomor HP</label>
-                <input type="tel" id="phone" name="phone" placeholder="Masukkan nomor HP Anda" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+    <!-- Page Content Container -->
+    <div id="page-container">
+        <!-- Halaman 1: Home -->
+        <div id="home" class="page container mx-auto px-4 py-8 md:py-16 text-center section-separator">
+            <h1 class="text-2xl md:text-3xl font-bold mb-2">Form Belajar</h1>
+            <p class="text-gray-500 mb-8">Ini adalah website latihan pertama</p>
+            <!-- Image Placeholder -->
+            <div class="w-full max-w-3xl h-64 md:h-96 mx-auto bg-gray-200 flex items-center justify-center text-gray-400">
+                1366x678
             </div>
+        </div>
 
-            <!-- Pesan -->
-            <div>
-                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
-                <textarea id="message" name="message" rows="4" placeholder="Tuliskan pesan Anda di sini" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"></textarea>
+        <!-- Halaman 2: My Profile -->
+        <div id="profile" class="page hidden container mx-auto px-4 py-8 md:py-16 text-center section-separator">
+            <h1 class="text-2xl md:text-3xl font-bold mb-2">My Profile</h1>
+            <p class="text-gray-500">Halaman ini adalah profil Anda.</p>
+            <div class="flex flex-wrap justify-center items-center space-x-4 md:space-x-12 mt-8">
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-gray-400 mb-2"></div>
+                    <p class="font-medium text-gray-700">Professional Teacher</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-gray-400 mb-2"></div>
+                    <p class="font-medium text-gray-700">Sport Field</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-gray-400 mb-2"></div>
+                    <p class="font-medium text-gray-700">Classroom</p>
+                </div>
             </div>
-            
-            <!-- Tombol Kirim -->
-            <div>
-                <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-md shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors transform hover:scale-105">
-                    Kirim Pesan
-                </button>
+        </div>
+
+        <!-- Halaman 3: Portfolio -->
+        <div id="portfolio" class="page hidden container mx-auto px-4 py-8 md:py-16 section-separator">
+            <h1 class="text-2xl md:text-3xl font-bold text-center mb-8">Portfolio</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-lg">Fresh Vegetable</h3>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-lg">Fresh Fruit</h3>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-lg">Instant Delivery</h3>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-lg">Kitchen Ingredient</h3>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-lg">Kitchen Set</h3>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="font-semibold text-lg">Bundling Set</h3>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
             </div>
-        </form>
-        
-        <!-- Pesan Sukses/Error (disembunyikan secara default) -->
-        <div id="messageBox" class="mt-8 p-4 rounded-md hidden">
-            <div id="messageText" class="font-medium"></div>
+        </div>
+
+        <!-- Halaman 4: Message Us -->
+        <div id="contact" class="page hidden container mx-auto px-4 py-8 md:py-16 section-separator">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Message Us</h2>
+            <div class="flex flex-col lg:flex-row lg:space-x-8">
+                <!-- Form Input -->
+                <div class="w-full lg:w-1/3 mb-8 lg:mb-0">
+                    <form id="messageForm" class="space-y-4">
+                        <div>
+                            <label for="form-name" class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
+                            <input type="text" id="form-name" name="name" placeholder="Nama" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                        </div>
+                        <div>
+                            <label for="form-date" class="block text-sm font-medium text-gray-700 mb-1">Tanggal Lahir</label>
+                            <input type="date" id="form-date" name="date" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label>
+                            <div class="flex items-center space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="gender" value="Laki-Laki" class="form-radio text-blue-600">
+                                    <span class="ml-2">Laki-Laki</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="gender" value="Perempuan" class="form-radio text-blue-600">
+                                    <span class="ml-2">Perempuan</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="form-message" class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
+                            <textarea id="form-message" name="message" rows="4" placeholder="Pesan" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-md shadow-lg hover:bg-blue-700 transition-colors">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Output Display with table -->
+                <div class="w-full lg:w-2/3 p-4 bg-gray-100 rounded-lg shadow-inner table-container">
+                    <table id="dataTable" class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal Lahir</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jenis Kelamin</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pesan</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Profile</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <!-- Data will be dynamically added here -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Ada Lovelace</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">December 10, 1815</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Perempuan</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Belajar Buat Website</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium"><a href="#" class="text-blue-600 hover:text-blue-900">Klik Disini</a></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"><a href="#" class="text-red-600 hover:text-red-900">🗑️</a></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grace Hopper</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">December 9, 1906</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Perempuan</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Hello World</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium"><a href="#" class="text-blue-600 hover:text-blue-900">Klik Disini</a></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"><a href="#" class="text-red-600 hover:text-red-900">🗑️</a></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Margaret Hamilton</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">August 17, 1936</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Perempuan</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Text Dulu</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium"><a href="#" class="text-blue-600 hover:text-blue-900">Klik Disini</a></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"><a href="#" class="text-red-600 hover:text-red-900">🗑️</a></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Joan Clarke</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">June 24, 1917</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Laki-Laki</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Selalu Semangat</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium"><a href="#" class="text-blue-600 hover:text-blue-900">Klik Disini</a></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"><a href="#" class="text-red-600 hover:text-red-900">🗑️</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Halaman 5: Achievement -->
+        <div id="achievement" class="page hidden container mx-auto px-4 py-8 md:py-16 section-separator">
+            <h1 class="text-2xl md:text-3xl font-bold text-center mb-8">Achievement</h1>
+            <div class="flex flex-wrap justify-center items-center space-x-4 md:space-x-12 mt-8">
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-gray-400 mb-2"></div>
+                    <p class="font-medium text-gray-700">Jakarta</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-gray-400 mb-2"></div>
+                    <p class="font-medium text-gray-700">Bandung</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-gray-400 mb-2"></div>
+                    <p class="font-medium text-gray-700">Surabaya</p>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="p-4 md:p-6 text-center text-sm text-gray-500">
+        Created By Revou
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const form = document.getElementById('contactForm');
-            const messageBox = document.getElementById('messageBox');
-            const messageText = document.getElementById('messageText');
+            const messageForm = document.getElementById('messageForm');
+            const dataTableBody = document.querySelector('#dataTable tbody');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
 
-            form.addEventListener('submit', async (e) => {
+            // Fungsi untuk menampilkan halaman yang dipilih
+            function showPage(pageId) {
+                pages.forEach(page => {
+                    page.classList.add('hidden');
+                });
+                const activePage = document.getElementById(pageId);
+                if (activePage) {
+                    activePage.classList.remove('hidden');
+                }
+            }
+
+            // Atur event listener untuk setiap link navigasi
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const pageId = e.target.getAttribute('href').substring(1);
+                    showPage(pageId);
+                });
+            });
+
+            // Tampilkan halaman 'home' saat pertama kali dimuat
+            showPage('home');
+
+            // Event listener untuk form pengiriman data
+            messageForm.addEventListener('submit', (e) => {
                 e.preventDefault();
 
-                // Dapatkan nilai dari setiap input
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const message = document.getElementById('message').value.trim();
+                const formData = new FormData(messageForm);
+                const name = formData.get('name') || '';
+                const date = formData.get('date') || '';
+                const gender = formData.get('gender') || '';
+                const message = formData.get('message') || '';
 
-                // Validasi sederhana
-                if (!name || !email || !phone || !message) {
-                    showMessage('Semua kolom harus diisi.', 'error');
+                if (!name || !date || !gender || !message) {
+                    alert('Semua kolom harus diisi.');
                     return;
                 }
 
-                showMessage('Pesan Anda berhasil dikirim!', 'success');
-                form.reset();
-            });
+                // Buat baris baru untuk tabel
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${name}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${date}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${gender}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${message}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium"><a href="#" class="text-blue-600 hover:text-blue-900">Klik Disini</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"><a href="#" class="text-red-600 hover:text-red-900" onclick="this.closest('tr').remove(); return false;">🗑️</a></td>
+                `;
 
-            function showMessage(text, type) {
-                messageText.textContent = text;
-                messageBox.classList.remove('hidden', 'bg-green-100', 'text-green-700', 'bg-red-100', 'text-red-700');
-                if (type === 'success') {
-                    messageBox.classList.add('bg-green-100', 'text-green-700');
-                } else if (type === 'error') {
-                    messageBox.classList.add('bg-red-100', 'text-red-700');
-                }
-            }
+                // Tambahkan baris ke tabel
+                dataTableBody.prepend(newRow);
+
+                // Reset formulir setelah pengiriman
+                messageForm.reset();
+            });
         });
     </script>
 </body>
